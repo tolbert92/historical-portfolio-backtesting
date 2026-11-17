@@ -1,0 +1,25 @@
+{
+  "schema_version": "1.0.0",
+  "source_skill": "historical-portfolio-backtesting",
+  "run_id": "bt-fixture-001",
+  "status": "partial",
+  "series": [
+    {
+      "series_id": "portfolio_equity",
+      "points": [
+        {
+          "date": "2025-01-02",
+          "value": 10000
+        },
+        {
+          "date": "2025-01-03",
+          "value": 10800
+        }
+      ]
+    }
+  ],
+  "metadata": {
+    "source": "hypothetical_fixture",
+    "compatibility": "internal handoff only; receiving 3D skill contract not yet verified"
+  }
+}

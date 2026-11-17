@@ -1,0 +1,69 @@
+{
+  "schema_version": "1.0.0",
+  "execution": {
+    "mode": "standalone",
+    "run_id": "bt-fixture-001",
+    "validation_policy": "tiered"
+  },
+  "portfolio": {
+    "portfolio_id": "hypothetical-60-40",
+    "currency": "USD",
+    "initial_capital": 10000,
+    "positions": [
+      {
+        "asset_id": "ASSET_A",
+        "target_weight": 0.6
+      },
+      {
+        "asset_id": "ASSET_B",
+        "target_weight": 0.4
+      }
+    ]
+  },
+  "market_data": {
+    "frequency": "daily",
+    "price_type": "total_return_index",
+    "return_convention": "total_return",
+    "series": [
+      {
+        "date": "2025-01-02",
+        "prices": {
+          "ASSET_A": 100,
+          "ASSET_B": 100
+        }
+      },
+      {
+        "date": "2025-01-03",
+        "prices": {
+          "ASSET_A": 110,
+          "ASSET_B": 105
+        }
+      }
+    ],
+    "provenance": {
+      "source": "hypothetical_fixture",
+      "data_version": "fixture-1"
+    }
+  },
+  "simulation": {
+    "start_date": "2025-01-02",
+    "end_date": "2025-01-03",
+    "strategy_type": "buy_and_hold",
+    "execution_model": "next_available_open"
+  },
+  "assumptions": {
+    "fractional_shares": true,
+    "allow_short_selling": false,
+    "allow_leverage": false,
+    "commission_fixed": 0,
+    "commission_rate": 0,
+    "slippage_bps": 0,
+    "cash_return_annual": 0,
+    "risk_free_rate_annual": 0.03
+  },
+  "benchmarks": [],
+  "integration": {
+    "generate_visualization_handoff": true,
+    "include_audit_manifest": true
+  }
+}

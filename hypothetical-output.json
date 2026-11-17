@@ -1,0 +1,70 @@
+{
+  "schema_version": "1.0.0",
+  "skill": "historical-portfolio-backtesting",
+  "run_id": "bt-fixture-001",
+  "status": "partial",
+  "simulation": {
+    "strategy": "buy_and_hold",
+    "currency": "USD"
+  },
+  "performance": {
+    "total_return": 0.08,
+    "cagr": null,
+    "annualized_volatility": null,
+    "maximum_drawdown": 0,
+    "sharpe_ratio": null,
+    "sortino_ratio": null,
+    "time_weighted_return": 0.08,
+    "money_weighted_return": null
+  },
+  "benchmarks": [],
+  "attribution": {},
+  "transaction_costs": {
+    "total": 0
+  },
+  "portfolio_timeseries": [
+    {
+      "date": "2025-01-02",
+      "value": 10000
+    },
+    {
+      "date": "2025-01-03",
+      "value": 10800
+    }
+  ],
+  "transactions": [],
+  "validation": {
+    "critical_errors": [],
+    "warnings": [],
+    "disabled_metrics": [
+      {
+        "metric": "cagr",
+        "reason": "Two-day illustrative window; not annualized in this fixture"
+      },
+      {
+        "metric": "annualized_volatility",
+        "reason": "Insufficient return observations"
+      },
+      {
+        "metric": "sharpe_ratio",
+        "reason": "Insufficient return observations"
+      },
+      {
+        "metric": "sortino_ratio",
+        "reason": "Insufficient return observations"
+      },
+      {
+        "metric": "money_weighted_return",
+        "reason": "Not evaluated in this reference fixture"
+      }
+    ],
+    "assumptions": []
+  },
+  "provenance": {
+    "source": "hypothetical_fixture"
+  },
+  "audit_manifest": {
+    "fixture": "BT-001",
+    "note": "Independently calculated reference values; not engine output"
+  }
+}

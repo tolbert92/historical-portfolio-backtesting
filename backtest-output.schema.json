@@ -1,0 +1,163 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "additionalProperties": false,
+  "title": "Historical Backtest Output v1.0",
+  "required": [
+    "schema_version",
+    "skill",
+    "run_id",
+    "status",
+    "simulation",
+    "performance",
+    "validation",
+    "provenance"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "1.0.0"
+    },
+    "skill": {
+      "const": "historical-portfolio-backtesting"
+    },
+    "run_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "status": {
+      "enum": [
+        "completed",
+        "partial",
+        "blocked",
+        "failed"
+      ]
+    },
+    "simulation": {
+      "type": "object",
+      "required": [
+        "strategy",
+        "currency"
+      ],
+      "properties": {
+        "strategy": {
+          "type": "string",
+          "minLength": 1
+        },
+        "currency": {
+          "type": "string",
+          "pattern": "^[A-Z]{3}$"
+        }
+      },
+      "additionalProperties": false
+    },
+    "performance": {
+      "type": "object",
+      "required": [
+        "total_return",
+        "cagr",
+        "annualized_volatility",
+        "maximum_drawdown",
+        "sharpe_ratio",
+        "sortino_ratio",
+        "time_weighted_return",
+        "money_weighted_return"
+      ],
+      "properties": {
+        "total_return": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "cagr": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "annualized_volatility": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "maximum_drawdown": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "sharpe_ratio": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "sortino_ratio": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "time_weighted_return": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "money_weighted_return": {
+          "type": [
+            "number",
+            "null"
+          ]
+        }
+      },
+      "additionalProperties": false
+    },
+    "benchmarks": {
+      "type": "array"
+    },
+    "attribution": {
+      "type": "object"
+    },
+    "transaction_costs": {
+      "type": "object"
+    },
+    "portfolio_timeseries": {
+      "type": "array"
+    },
+    "transactions": {
+      "type": "array"
+    },
+    "validation": {
+      "type": "object",
+      "required": [
+        "critical_errors",
+        "warnings",
+        "disabled_metrics",
+        "assumptions"
+      ],
+      "properties": {
+        "critical_errors": {
+          "type": "array"
+        },
+        "warnings": {
+          "type": "array"
+        },
+        "disabled_metrics": {
+          "type": "array"
+        },
+        "assumptions": {
+          "type": "array"
+        }
+      },
+      "additionalProperties": false
+    },
+    "provenance": {
+      "type": "object"
+    },
+    "audit_manifest": {
+      "type": "object"
+    }
+  }
+}
